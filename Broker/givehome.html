@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>List Your Property for Rent – Broker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: #fff9f3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-section {
+      max-width: 560px;
+      margin: 60px auto 32px auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px rgba(255,140,0,0.11);
+      padding: 2.8rem 2.1rem 2.1rem 2.1rem;
+    }
+    .broker-btn {
+      background: orange;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 0.8rem 0;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+      border: none;
+    }
+    .broker-btn:hover, .pay-btn:hover {
+      background: #ff9900;
+      color: #fff;
+    }
+    label {
+      font-weight: 600;
+      color: orange;
+      margin-bottom: 0.2rem;
+    }
+    .form-control:focus {
+      border-color: orange;
+      box-shadow: 0 0 0 0.14rem rgba(255,165,0,.21);
+    }
+    .form-header {
+      text-align: center;
+      color: orange;
+      font-weight: 800;
+      font-size: 2.2rem;
+      margin-bottom: 1.4rem;
+    }
+    .payment-section {
+      background: #fff6e3;
+      border-radius: 12px;
+      border: 1px solid #ffd699;
+      margin: 16px 0 24px 0;
+      padding: 1rem;
+      text-align: center;
+    }
+    .reg-fee-box {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: orange;
+      margin-bottom: 0.6rem;
+    }
+    .fee-label {
+      margin-right: 4px;
+    }
+    .fee-amount {
+      color: #ff7f27;
+      font-weight: 800;
+    }
+    .preview-img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 0.55rem;
+      margin-bottom: 0.8rem;
+      display: none;
+    }
+    .payment-success {
+      text-align: center;
+      color: green;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .payment-success svg {
+      width: 36px;
+      height: 36px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg broker-navbar" style="background:orange;">
+    <div class="container">
+      <a class="navbar-brand text-white" href="#">Broker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavExtra"
+        aria-controls="navbarNavExtra" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavExtra">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item"><a class="nav-link text-white" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="help.html">Help</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="login.html">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="form-section">
+    <div class="form-header">List Your Property for Rent</div>
+    <div id="paymentSuccessMsg" class="payment-success" style="display:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="green" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      Payment Successful!
+    </div>
+    <form id="propertyForm" onsubmit="handleSubmit(event)">
+      <div class="mb-3">
+        <label for="ownerName" class="form-label">Your Name</label>
+        <input type="text" id="ownerName" class="form-control" placeholder="Enter your name" required />
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required />
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Property Address</label>
+        <input type="text" id="address" class="form-control" placeholder="House no. / Street / Locality" required />
+      </div>
+      <div class="mb-3">
+        <label for="postalCode" class="form-label">Postal Code</label>
+        <input type="text" id="postalCode" class="form-control" placeholder="Postal Code" required />
+      </div>
+      <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input type="text" id="city" class="form-control" placeholder="City" required />
+      </div>
+      <div class="mb-3">
+        <label for="state" class="form-label">State</label>
+        <select id="state" class="form-select" required>
+          <option value="">Select State</option>
+          <option>Maharashtra</option>
+          <option>Karnataka</option>
+          <option>Tamil Nadu</option>
+          <option>Delhi (NCT)</option>
+          <option>Telangana</option>
+          <option>Uttar Pradesh</option>
+          <option>West Bengal</option>
+          <option>Gujarat</option>
+          <option>Rajasthan</option>
+          <option>Bihar</option>
+          <option>Madhya Pradesh</option>
+          <option>Punjab</option>
+          <option>Haryana</option>
+          <option>Kerala</option>
+          <option>Odisha</option>
+          <option>Assam</option>
+          <option>Chhattisgarh</option>
+          <option>Jharkhand</option>
+          <option>Uttarakhand</option>
+          <option>Goa</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" id="location" class="form-control" placeholder="e.g. Near Park, Downtown" />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Rent Price (per month)</label>
+        <input type="number" id="price" class="form-control" placeholder="e.g. 15000" min="0" required />
+      </div>
+      <!-- Image Upload -->
+      <div class="mb-3">
+        <label for="propertyImage" class="form-label">Add Property Image</label>
+        <input type="file" id="propertyImage" class="form-control" accept="image/*" required />
+        <img id="previewImg" class="preview-img" alt="Preview" />
+      </div>
+      <!-- Property Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Property Description</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Eg: Fully furnished, 300 sqft, Near metro, Pool, Garden, etc." required></textarea>
+      </div>
+      <!-- Registration Fee Section -->
+      <div class="mb-4 payment-section">
+        <div class="reg-fee-box">
+          <span class="fee-label">Registration Fee: </span>
+          <span class="fee-amount">Rs 199</span>
+        </div>
+        <button type="button" id="payBtn" class="btn broker-btn w-100 pay-btn">Pay Rs 199 & Register</button>
+      </div>
+      <button type="submit" id="submitBtn" class="btn broker-btn w-100 mt-2" disabled>Submit Property</button>
+    </form>
+  </div>
+  <footer class="footer mt-auto" style="background:#ff7f27; color:#fff; text-align:center;font-weight:600;padding: 1.3rem 1rem 1.1rem;">
+    <h5>More than 200 rental homes available nationwide</h5>
+    <p>Connecting property owners and tenants is now easier than ever.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Show image preview
+    document.getElementById('propertyImage').addEventListener('change', function(event) {
+      const img = document.getElementById('previewImg');
+      const file = event.target.files[0];
+      if (file) {
+        img.src = URL.createObjectURL(file);
+        img.style.display = 'block';
+      } else {
+        img.src = '';
+        img.style.display = 'none';
+      }
+    });
+
+    // Redirect to payment page on pay button click
+    document.getElementById('payBtn').addEventListener('click', () => {
+      // Save current form data temporarily in localStorage to restore after payment if needed
+      const formData = {
+        ownerName: document.getElementById('ownerName').value,
+        phone: document.getElementById('phone').value,
+        address: document.getElementById('address').value,
+        postalCode: document.getElementById('postalCode').value,
+        city: document.getElementById('city').value,
+        state: document.getElementById('state').value,
+        location: document.getElementById('location').value,
+        price: document.getElementById('price').value,
+        description: document.getElementById('description').value,
+      };
+      localStorage.setItem('propertyFormData', JSON.stringify(formData));
+
+      // Redirect to payment page
+      window.location.href = 'payment.html';
+    });
+
+    // Check payment success from URL param
+    function getQueryParam(param) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(param);
+    }
+
+    function restoreFormData() {
+      try {
+        const savedData = localStorage.getItem('propertyFormData');
+        if (savedData) {
+          const data = JSON.parse(savedData);
+          document.getElementById('ownerName').value = data.ownerName || '';
+          document.getElementById('phone').value = data.phone || '';
+          document.getElementById('address').value = data.address || '';
+          document.getElementById('postalCode').value = data.postalCode || '';
+          document.getElementById('city').value = data.city || '';
+          document.getElementById('state').value = data.state || '';
+          document.getElementById('location').value = data.location || '';
+          document.getElementById('price').value = data.price || '';
+          document.getElementById('description').value = data.description || '';
+        }
+      } catch (e) {}
+    }
+
+    function updateUIForPaymentSuccess() {
+      const paymentSuccess = getQueryParam('payment') === 'success';
+      if (paymentSuccess) {
+        document.getElementById('paymentSuccessMsg').style.display = 'block';
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('payBtn').disabled = true;
+      }
+    }
+
+    // On page load
+    window.addEventListener('DOMContentLoaded', () => {
+      restoreFormData();
+      updateUIForPaymentSuccess();
+    });
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      // Ensure payment is done
+      if (getQueryParam('payment') !== 'success') {
+        alert('Please complete the payment before submitting the property.');
+        return;
+      }
+
+      // Validate fields including image file
+      const name = document.getElementById('ownerName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const postal = document.getElementById('postalCode').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const state = document.getElementById('state').value;
+      const location = document.getElementById('location').value.trim();
+      const price = document.getElementById('price').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const imageFile = document.getElementById('propertyImage').files[0];
+
+      if (!name || !phone || !address || !postal || !city || !state || !price || !description || !imageFile) {
+        alert('Please fill all required fields.');
+        return;
+      }
+
+      // Read image file as Base64 for storage
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const imageBase64 = e.target.result;
+        const propertyData = {
+          name, phone, address, postal, city, location, price, state, description, image: imageBase64
+        };
+
+        // Save to array in localStorage
+        let properties = [];
+        try {
+          const stored = localStorage.getItem('all_properties');
+          if (stored) properties = JSON.parse(stored);
+        } catch (e) {}
+        properties.push(propertyData);
+        localStorage.setItem('all_properties', JSON.stringify(properties));
+        alert('Property listed successfully!');
+
+        // Clear temp saved form data and payment param
+        localStorage.removeItem('propertyFormData');
+        window.location.href = "allproperties.html"; // Redirect to properties listing page
+      };
+      reader.readAsDataURL(imageFile);
+    }
+  </script>
+</body>
+</html>

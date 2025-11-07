@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Broker – Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    html, body { height: 100%; }
+
+
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .main-content {
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .options-section {
+      margin-top: 80px;
+      margin-bottom: 42px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 80px;
+      align-items: flex-start;
+    }
+    .option-card {
+      cursor: pointer;
+      border-radius: 32px;
+      box-shadow: 0 6px 32px rgba(255,140,0,0.13);
+      padding: 4rem 5.5rem;
+      text-align: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 2.7rem;
+      background: orange;
+      min-width: 490px;
+      max-width: 620px;
+      width: 100%;
+      border: none;
+      margin-bottom: 0;
+      transition: background 0.3s, box-shadow 0.3s;
+      outline: none;
+      letter-spacing: 0.02em;
+    }
+    .option-card:hover {
+      background: #ff9900;
+    }
+    .footer {
+      background: #ff7f27;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      padding: 1.3rem 1rem 1.1rem;
+      border-top: 1.5px solid #ffe6cc;
+      text-align: center;
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+    .footer h5 { font-weight: 700; margin-bottom: 0.35em; }
+    .footer p { margin-bottom: 0; font-weight: 400; }
+    @media (max-width: 900px) {
+      .options-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+      }
+      .option-card {
+        min-width: 220px;
+        max-width: 100%;
+        font-size: 1.4rem;
+        padding: 2.2rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg broker-navbar">
+    <div class="container">
+      <a class="navbar-brand text-white" href="#">Broker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavExtra"
+        aria-controls="navbarNavExtra" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavExtra">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item"><a class="nav-link text-white" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="help.html">Help</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="login.html">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="main-content">
+    <div class="options-section">
+      <button class="option-card" onclick="location.href='gethome.html'">
+        Find a Home to Rent
+      </button>
+      <button class="option-card" onclick="location.href='givehome.html'">
+        List Your Property for Rent
+      </button>
+    </div>
+  </div>
+  <footer class="footer mt-auto">
+    <h5>More than 200 rental homes available nationwide</h5>
+    <p>Connecting property owners and tenants is now easier than ever.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

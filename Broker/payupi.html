@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pay by UPI - Rs 199</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: #fff9f3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 6rem 1rem 4rem; /* Top padding for fixed navbar */
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .payment-container {
+      max-width: 480px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px rgba(255,140,0,0.11);
+      padding: 2rem;
+      width: 100%;
+      margin-top: 2rem;
+    }
+    .payment-header {
+      text-align: center;
+      color: orange;
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      font-weight: 600;
+      color: orange;
+    }
+    .form-control:focus {
+      border-color: orange;
+      box-shadow: 0 0 0 0.14rem rgba(255,165,0,.21);
+    }
+    .pay-btn {
+      background: orange;
+      color: white;
+      font-weight: 700;
+      padding: 0.8rem 0;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      width: 100%;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+    .pay-btn:hover {
+      background: #ff9900;
+      color: #fff;
+    }
+    .payment-success-msg {
+      color: green;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+    .payment-success-icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 28px;
+      height: 28px;
+      margin-right: 8px;
+    }
+    /* Navbar orange background and white text */
+    nav.navbar {
+      background-color: orange !important;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1030;
+      box-shadow: 0 2px 8px rgba(255, 140, 0, 0.3);
+      margin: 0;
+      padding: 0.5rem 1rem;
+    }
+    nav .navbar-brand, nav .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+    nav .nav-link:hover, nav .nav-link:focus {
+      color: #fff3cd !important;
+      text-decoration: underline;
+    }
+    /* Footer orange background and white text, fixed bottom */
+    footer {
+      width: 100%;
+      padding: 1rem 0;
+      text-align: center;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      background: orange;
+      border-top: 1px solid #cc7a00;
+      font-weight: 600;
+      box-shadow: 0 -2px 8px rgba(255, 140, 0, 0.3);
+      z-index: 1030;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Broker Payment</a>
+      <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="payment.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="payupi.html">UPI Payment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="paycard.html">Card Payment</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="payment-container">
+    <div class="payment-header">Pay Rs 199 Registration Fee (UPI)</div>
+    <form id="upiForm" onsubmit="handleUpiPayment(event)">
+      <div class="mb-3">
+        <label for="upiName" class="form-label">Name</label>
+        <input type="text" id="upiName" class="form-control" placeholder="Enter your name" required />
+      </div>
+      <div class="mb-3">
+        <label for="upiPhone" class="form-label">Phone Number</label>
+        <input type="tel" id="upiPhone" class="form-control" placeholder="10-digit phone number" pattern="^\d{10}$" title="Enter a valid 10-digit phone number" required />
+      </div>
+      <div class="mb-3">
+        <label for="upiId" class="form-label">UPI ID</label>
+        <input type="text" id="upiId" class="form-control" placeholder="example@ibl or example@ybl" pattern="^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{3,64}$" title="Enter a valid UPI ID (e.g. abc@ybl)" required />
+      </div>
+      <button type="submit" class="pay-btn">Pay Rs 199</button>
+    </form>
+    <div id="successMessage" class="payment-success-msg" style="display:none;">
+      <svg class="payment-success-icon" fill="none" stroke="green" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Payment done successfully!
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Broker Payment Project. All rights reserved.
+  </footer>
+
+  <script>
+    function handleUpiPayment(event) {
+      event.preventDefault();
+      const name = document.getElementById('upiName').value.trim();
+      const phone = document.getElementById('upiPhone').value.trim();
+      const upiId = document.getElementById('upiId').value.trim();
+
+      if (!name || !phone.match(/^\d{10}$/) || !upiId.match(/^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{3,64}$/)) {
+        alert('Please fill valid UPI details.');
+        return;
+      }
+
+      document.getElementById('successMessage').style.display = 'block';
+      document.getElementById('upiForm').style.display = 'none';
+
+      setTimeout(() => {
+        window.location.href = 'givehome.html?payment=success';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

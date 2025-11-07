@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Broker – Get Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="gethome.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg broker-navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">Broker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-white" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="helpDropdown" data-bs-toggle="dropdown" aria-expanded="false">Help</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#help-section">Help Topics</a></li>
+              <li><a class="dropdown-item" href="#contact-us">Contact Us</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link text-white" href="login.html">Logout</a></li>
+        </ul>
+        <form class="d-flex ms-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search State..." aria-label="Search" />
+          <button class="btn btn-light" type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div id="adCarousel" class="carousel slide mt-4 container" data-bs-ride="carousel">
+    <div class="carousel-inner rounded-4 shadow">
+      <div class="carousel-item active">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80" class="d-block w-100 carousel-img" alt="Modern Home" />
+      </div>
+      <div class="carousel-item">
+        <img src="Images/premium_photo.avif" class="d-block w-100 carousel-img" alt="Cozy House" />
+      </div>
+      <div class="carousel-item">
+        <img src="Images/istockphoto.webp" class="d-block w-100 carousel-img" alt="Modern Architecture" />
+      </div>
+      <div class="carousel-item">
+        <img src="Images/New.webp" class="d-block w-100 carousel-img" alt="Contemporary Home" />
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=1200&q=80" class="d-block w-100 carousel-img" alt="For Rent Sign" />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#adCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#adCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- State Cards Grid with clickable filter -->
+  <main class="container my-5">
+    <div class="row g-4" id="stateCardsRow">
+      <!-- Same state cards as before, with data-state and state name as attribute -->
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Maharashtra" style="cursor:pointer"><img src="Images/Mahashtra.jpg" class="card-img-top" alt="Maharashtra Apartments" /><div class="card-body"><h5 class="card-title">Maharashtra</h5><p class="card-text">Mumbai, Pune, Nagpur</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Karnataka" style="cursor:pointer"><img src="Images/Karnataka.jpg" class="card-img-top" alt="Karnataka Residence" /><div class="card-body"><h5 class="card-title">Karnataka</h5><p class="card-text">Bangalore, Mysore</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Tamil Nadu" style="cursor:pointer"><img src="Images/TamilNadu.jpg" class="card-img-top" alt="Tamil Nadu Residence" /><div class="card-body"><h5 class="card-title">Tamil Nadu</h5><p class="card-text">Chennai, Coimbatore</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Delhi (NCT)" style="cursor:pointer"><img src="Images/Dehli.jpg" class="card-img-top" alt="Delhi Residence" /><div class="card-body"><h5 class="card-title">Delhi (NCT)</h5><p class="card-text">New Delhi, NCR</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Telangana" style="cursor:pointer"><img src="Images/TELENGAN.jpg" class="card-img-top" alt="Telangana Residence" /><div class="card-body"><h5 class="card-title">Telangana</h5><p class="card-text">Hyderabad, Warangal</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Uttar Pradesh" style="cursor:pointer"><img src="Images/Uttarprades.jpg" class="card-img-top" alt="UP Residences" /><div class="card-body"><h5 class="card-title">Uttar Pradesh</h5><p class="card-text">Noida, Lucknow, Agra</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="West Bengal" style="cursor:pointer"><img src="Images/WestBengal.jpg" class="card-img-top" alt="West Bengal Residence" /><div class="card-body"><h5 class="card-title">West Bengal</h5><p class="card-text">Kolkata, Siliguri</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Gujarat" style="cursor:pointer"><img src="Images/Gujrat.jpg" class="card-img-top" alt="Gujarat Homes" /><div class="card-body"><h5 class="card-title">Gujarat</h5><p class="card-text">Ahmedabad, Surat</p></div></div></div>
+      <div class="col-md-4"><div class="card home-card h-100 shadow-sm state-card" data-state="Rajasthan" style="cursor:pointer"><img src="Images/Rajastan.jpg" class="card-img-top" alt="Rajasthan Homes" /><div class="card-body"><h5 class="card-title">Rajasthan</h5><p class="card-text">Jaipur, Udaipur, Jodhpur</p></div></div></div>
+    </div>
+  </main>
+
+  <!-- Help Section & Footer -->
+  <section id="help-section" class="container mt-5">
+    <h3 class="text-orange mb-3">Help Topics</h3>
+    <ul>
+      <li>How to search homes by city or area?</li>
+      <li>How to contact a property owner directly?</li>
+      <li>Rental agreements and payments guide.</li>
+      <li>Support for tenants and landlords.</li>
+    </ul>
+    <div id="contact-us" class="mt-5">
+      <h4 class="text-orange">Contact Us</h4>
+      <p>Email: support@broker.com<br />Phone: 123-456-7890</p>
+    </div>
+  </section>
+  <footer class="footer mt-auto">
+    <h5>More than 200 rental homes available nationwide</h5>
+    <p>Connecting property owners and tenants is now easier than ever.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script to enable state-based redirect -->
+  <script>
+    document.getElementById('stateCardsRow').addEventListener('click', function(e) {
+      let card = e.target.closest('.state-card');
+      if(card) {
+        let stateName = card.getAttribute('data-state');
+        if (stateName) {
+          window.location.href = 'allproperties.html?state=' + encodeURIComponent(stateName);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

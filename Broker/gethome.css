@@ -1,0 +1,38 @@
+body {
+    background: #fff9f3;
+  }
+  .broker-navbar {
+    background: orange;
+    border-radius: 0 0 16px 16px;
+
+  }
+  .text-orange {
+    color: orange;
+    font-weight: 700;
+  }
+  .carousel-img {
+    height: 340px;
+    object-fit: cover;
+    border-radius: 1.4rem;
+  }
+  .home-card {
+    border-radius: 20px;
+  }
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+  }
+  .footer {
+    background: #ff7f27;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1.3rem 1rem 1.1rem;
+    border-top: 1.5px solid #ffe6cc;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .footer h5 { font-weight: 700; margin-bottom: 0.35em; }
+  .footer p { margin-bottom: 0; font-weight: 400; }
+  
